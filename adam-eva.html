@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai toan adamva eva</title>
+</head>
+<body>
+<script>
+    function Apple(weight) {
+        this.weight = weight;
+        this.getWeight = function () {
+            return this.weight;
+        }
+
+        this.decrease = function () {
+            this.weight--;
+        }
+
+        this.isEmpty = function () {
+            if (this.weight == 0) {
+                console.log('Da het');
+            } else {
+                console.log('Van con nhe');
+            }
+        }
+    }
+
+    function Human(name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        //thay doi gia tri Apple
+        this.getName = function () {
+            return this.name;
+        }
+        this.getWeight = function () {
+            return this.weight;
+        }
+        this.getGender = function () {
+            return this.gender;
+        }
+
+        this.isMale = function () {
+            if (this.gender == 'female') {
+                document.write('Nam');
+            } else {
+                document.write('Nu')
+            }
+        }
+        //Kiem tra khoi luong qua tao
+        /*
+        this.checkApple = function () {
+            if (apple.getWeight() > 0) {
+                console.log('con' + apple.getWeight() + 'tao');
+            } else {
+                console.log('Het tao');
+            }
+        }*/
+        //táo sẽ giảm khối lượng
+        this.eatApple = function () {
+            this.weight++;
+        }
+        //người nói
+        this.say = function () {
+            console.log('hưllo');
+        }
+    }
+
+
+    var apple = new Apple(10);
+    var adam = new Human('Adam', 'male', 65);
+    var eva = new Human('Eva', 'female', 50);
+
+    //alert(apple.weight);
+    function antao() {
+        document.write('Quả táo có'+apple.weight+'phần'+'<br>');
+        for (let i = apple.weight; i>0 ; i--) {
+            if (i % 2 == 0) {
+                adam.eatApple();
+                apple.decrease();
+                document.write('adam an táo kl ='+adam.weight+'quả táo còn'+apple.weight+'<br>');
+
+            } else {
+                eva.eatApple();
+                apple.decrease();
+                document.write('eva an táo kl ='+eva.weight+'quả táo còn'+apple.weight+'<br>');
+            }
+
+        }
+        if(apple.weight ==0)
+        {
+            document.write('Hết Táo')
+        }
+
+    }
+
+    antao();
+</script>
+
+</body>
+</html>
